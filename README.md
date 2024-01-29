@@ -14,4 +14,4 @@ Ext. API: https://www.el-tiempo.net/api/json/v2/provincias
 
 Ext. API: https://www.el-tiempo.net/api/json/v2/provincias/[COD_PROV]/municipios 
 
-Ext. API: https://www.el-tiempo.net/api/json/v2/provincias/[COD_PROV]/municipios/[first 5 INE code numbers] 
+Ext. API: https://www.el-tiempo.net/api/json/v2/provincias/[COD_PROV]/municipios/[first5INEcodenumbers] 

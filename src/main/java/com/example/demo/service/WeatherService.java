@@ -6,12 +6,15 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.example.demo.obj.Day;
 import com.example.demo.obj.Rain;
 import com.example.demo.obj.Weather;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+@Service
 public class WeatherService {
 
 	private Weather actualWeather;

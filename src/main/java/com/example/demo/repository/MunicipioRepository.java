@@ -11,4 +11,10 @@ public interface MunicipioRepository extends CrudRepository<Municipio,Long>{
 	List<Municipio> findByCodProv(int CodProv);
 	
 	Municipio findByCodProvAndCodINE(int codProv, int codINE);
+	
+	Municipio findById(int id);
+	
+	
+	List<Municipio> findByNombreLike(String pattern);
+	
 }

@@ -6,26 +6,46 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.example.demo.obj.Province;
+import com.example.demo.repository.ProvinceRepository;
+import com.example.demo.repository.UserRepository;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+
+@Service
 public class ProvinceService {
+	
+
+	ProvinceRepository province_repository;
 
 	private List<Province> allCommunities = new ArrayList<Province>();	
-	
 
 	private URL url_communities;
 	
 	
+	public ProvinceService(ProvinceRepository province_repository) {
+	      this.province_repository = province_repository;
+	}
+	 
 	public List<Province> getAllCommunities(){
 		return this.allCommunities;
 	}
 	
 	public void defineURL() throws MalformedURLException {
 		this.url_communities = new URL("https://www.el-tiempo.net/api/json/v2/provincias");
+	}
+	
+	
+	public void createProvincesDB(){
+		getDataProvince();
+		List<Province> list = getAllCommunities();
+		for(int i = 0 ; i < list.size() ; i++) {			
+			this.province_repository.save(list.get(i));
+		}
 	}
 	
 	
@@ -44,13 +64,24 @@ public class ProvinceService {
 		}
 	}
 	
+	
 	public void getDataProvince(){
-		try {
+		try{
 			reader();
 		} 
 		catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
+	
+	
+	public List<Province> searchProvince(String pattern){
+		return this.province_repository.findByNombrePronviciaContains(pattern);
+	}
+	
+	public List<Province> searchCommunity(String pattern){
+		return this.province_repository.findByCommunidadeProvinciaContains(pattern);
+	}
+	
 	
 }

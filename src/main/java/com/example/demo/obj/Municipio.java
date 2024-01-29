@@ -1,9 +1,14 @@
 package com.example.demo.obj;
 
+import java.util.List;
+
+import com.example.demo.obj.user.User;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -24,6 +29,9 @@ public class Municipio{
 	
 	String poblacionCapital;
 	
+	@ManyToMany(mappedBy = "favorites")
+    List<User> users;
+	
 	
 	public Municipio() {
      
@@ -36,6 +44,13 @@ public class Municipio{
 	        this.nombre = nombre;
 	        this.poblacionCapital = poblacionCapital;
 	    }
+	  
+	  public int getId() {
+		return id;
+	}
+	  public void setId(int id) {
+		this.id = id;
+	}
 
 	    public int getCodINE() {
 	        return codINE;
@@ -76,6 +91,13 @@ public class Municipio{
 	    public void setPoblacionCapital(String poblacionCapital) {
 	        this.poblacionCapital = poblacionCapital;
 	    }
-
+	    
+	    
+		public List<User> getUsers() {
+			return users;
+		}
+		public void setUsers(List<User> users) {
+			this.users = users;
+		}
 
 }

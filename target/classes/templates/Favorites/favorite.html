@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html  xmlns:th="https://www.thymeleaf.org">
+<head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title th:text="${title}"></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+    .card{
+    	width: 400px;
+  		height: 150px;	
+  		top: 350px;
+ 		left: 40%;
+    }
+    
+    body {
+	  background-image: url('/img/bg.jpg');
+	  background-repeat: no-repeat;
+	  background-attachment: fixed;
+	  background-size: cover;
+	}
+	
+	
+</style>
+		
+</head>
+
+<body>
+
+
+<nav class="navbar navbar-expand-sm bg-info navbar-black">
+  <div class="container-fluid">
+    <a class="navbar-brand" >Meteorological App</a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link"  href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  href="/provinces">Provinces</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <ul th:if="${authenticated == ''}" class="nav justify-content-end">
+	  <li  class="nav-item">
+	    <a class="nav-link"  th:href="@{/register}">Register</a>
+	  </li>
+	  <li class="nav-item">
+	    <a class="nav-link" th:href="@{/login}">Login</a>
+	  </li>
+	</ul>
+	<ul th:unless="${authenticated == ''}" class="nav justify-content-end">
+	  <li  class="nav-item">
+	    <a class="nav-link"  >Welcome, ...</a>
+	  </li>
+	  <li  class="nav-item">
+	    <a class="nav-link"  th:href="@{/logout}">Logout</a>
+	  </li>
+	  
+	</ul>
+  </div>
+</nav>
+
+
+<div class="card">
+	<div class="card-header text-center">
+		Do you want to add this municipio to Favorite ?		
+	</div>
+	<div style="" class="card-body  text-center">
+		<button class="btn btn-secondary"><i class="fas fa-times"></i> Cancel</button>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a th:href="@{/confirmfavorite/{id}(id=${id})}" ><button class="btn btn-success"><i class="fas fa-check"></i> Add Favorite</button></a>
+	</div>
+</div>
+
+
+
+
+
+
+
+</body>

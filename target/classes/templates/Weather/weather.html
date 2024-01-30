@@ -25,7 +25,7 @@
 </head>
 
 <body >
-<nav class="navbar navbar-expand-sm bg-info navbar-dark">
+<nav class="navbar navbar-expand-sm bg-info navbar-black">
   <div class="container-fluid">
     <a class="navbar-brand" >Meteorological App</a>
 
@@ -37,19 +37,26 @@
         <li class="nav-item">
           <a class="nav-link"  href="/provinces">Provinces</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link"  href="/municipios"   >Municipios</a>
-        </li>
-     
+        
       </ul>
     </div>
-    <ul class="nav justify-content-end">
-	  <li class="nav-item">
-	    <a class="nav-link"  href="#">Register</a>
+    
+    <ul th:if="${authenticated == ''}" class="nav justify-content-end">
+	  <li  class="nav-item">
+	    <a class="nav-link"  th:href="@{/register}">Register</a>
 	  </li>
 	  <li class="nav-item">
-	    <a class="nav-link" href="#">Login</a>
+	    <a class="nav-link" th:href="@{/login}">Login</a>
 	  </li>
+	</ul>
+	<ul th:unless="${authenticated == ''}" class="nav justify-content-end">
+	  <li  class="nav-item">
+	    <a class="nav-link"  >Welcome, ...</a>
+	  </li>
+	  <li  class="nav-item">
+	    <a class="nav-link"  th:href="@{/logout}">Logout</a>
+	  </li>
+	  
 	</ul>
   </div>
 </nav>

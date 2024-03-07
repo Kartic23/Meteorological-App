@@ -1,4 +1,4 @@
-#  Meteorological App
+#  Meteorological Application
 
 Goal: Create a meteorological information application for the Spanish municipalities. <br>
 

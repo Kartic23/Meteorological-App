@@ -1,11 +1,15 @@
 # Meteorological App
 
-Goal: Create a meteorological information application for the Spanish municipalities.
+Goal: Create a meteorological information application for the Spanish municipalities. <br>
 Important notes: 
 - The municipalities are filtered by community and provinces.
 - There are an external service to obtain weather information.
 - The application needs to have user authentication and save user favorites municipalities.
+  
 ![image](https://github.com/Kartic23/Meteorological-App/assets/105547398/7ec79416-b33e-432b-8af6-78d9f6892b8c)
+
+Ext. API: https://www.el-tiempo.net/api/json/v2/provincias 
+![image](https://github.com/Kartic23/Meteorological-App/assets/105547398/757fce89-5a1f-4cb7-bccc-01a89e0dc1e0)
 
 
 Prints of App:

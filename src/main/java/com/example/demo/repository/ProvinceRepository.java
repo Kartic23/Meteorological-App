@@ -11,5 +11,5 @@ public interface ProvinceRepository extends CrudRepository<Province,Long>{
 	List<Province> findByNombrePronviciaContains(String pattern);
 	
 	List<Province> findByCommunidadeProvinciaContains(String pattern);
-
+	
 }

@@ -120,7 +120,7 @@ public class UserController {
 		Municipio m = this.municipio_service.findByID(Integer.parseInt(id));
 		user.addFavorite(m);
 		this.userService.updateUser(user);
-        return "redirect:/message/4";
+        return "redirect:/listfavorites";
     }
 	
 	@GetMapping("/listfavorites")

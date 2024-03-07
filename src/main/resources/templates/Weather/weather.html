@@ -37,7 +37,9 @@
         <li class="nav-item">
           <a class="nav-link"  href="/provinces">Provinces</a>
         </li>
-        
+        <li class="nav-item">
+          <a class="nav-link"  th:href="@{/showSelectProvince/{id}   (id=${codProv})}">Municipios</a>
+        </li>
       </ul>
     </div>
     
@@ -167,7 +169,6 @@
 			  Min.push(Math.round(weather[i].minTemp))
 			  Rain.push(Math.round(weather[i].maxRain))
 		  }
-		  console.log(Rain)
 		 
 		  
 		const date = new Date();
@@ -188,7 +189,6 @@
 			labels.push(nextDay)
 			days++;
 		}
-		console.log(labels)
 
 			const currentTime = date.toLocaleTimeString();
 			document.getElementById("currentDay").innerHTML = currentDayOfWeek;

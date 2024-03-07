@@ -2,6 +2,7 @@ package com.example.demo.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -22,8 +23,7 @@ import com.example.demo.service.*;
 
 @Controller
 public class MeteoAppController {
-	
-	
+
 	ProvinceService province_service;
 	
 	MunicipioService municipio_service;
@@ -49,8 +49,11 @@ public class MeteoAppController {
 			this.province_service.createProvincesDB();
 			this.municipio_service.createMunicipiosDB(this.province_service.getAllCommunities());
 		}
-		this.province_service.getDataProvince();
-		this.municipio_service.getDataMunicipios(this.province_service.getAllCommunities());
+		if(n_gets == 1) {
+			this.province_service.getDataProvince();
+			this.municipio_service.getDataMunicipios(this.province_service.getAllCommunities());
+		}
+		
 		this.n_gets++;
 	    return "welcome";
 	 }
@@ -155,28 +158,22 @@ public class MeteoAppController {
 		else {
 			model.addAttribute("authenticated","logado");
 		}
-		System.out.println("type: " + type);
-		System.out.println("type: " + search);
 		model.addAttribute("title","List of Provinces with search");
 		List<Province> list = new ArrayList<Province>();
 		if(type.equals("provinces") && !search.equals("")){
-				list = this.province_service.searchProvince(search);
-				System.out.println("1IF: " + list.size());
+			list = this.province_service.searchProvince(search);
 		}
 		else if(type.equals("communities") && !search.equals("") ) {
 			list = this.province_service.searchCommunity(search);
-			System.out.println("2IF: " + list.size());
 		}
 		else if(type.equals("all") && !search.equals("")) {
-			System.out.println("3IF: " + list.size());
+			
 		}
 		else {
 			list = this.province_service.getAllCommunities();
-		}
-		System.out.println("list: " + list.size());
-		
+		}		
 		model.addAttribute("list", list);
-
+		model.addAttribute("title","List of Provinces");
 		return "Search/search";
 	}
 	

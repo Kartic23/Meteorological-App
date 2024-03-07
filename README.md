@@ -21,6 +21,8 @@ Prints of App:
 
   ![image](https://github.com/Kartic23/Meteorological-App/assets/105547398/9ad5abf6-e132-4f93-805a-2c733767de41)
 
+  ![image](https://github.com/Kartic23/Meteorological-App/assets/105547398/0df1690c-2534-445c-a1b1-780681b43b5f)
+
 - Favorites Page:
   ![image](https://github.com/Kartic23/Meteorological-App/assets/105547398/bea27a71-4d25-4f3b-93b6-9bde50f19bfe)
   
